@@ -40,20 +40,27 @@
         .row>div:last-child {
             margin-right: 0;
         }
+
+        h1 {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
+    <h1>Diab'data</h1>
     <form id="suiviForm">
         <div class="form-group">
-            <label for="date">Date :</label>
-            <input type="date" id="date" name="date">
+            <label for="datetime">Date et Heure :</label>
+            <input type="datetime-local" id="datetime" name="datetime">
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                const today = new Date().toISOString().split('T')[0];
-                document.getElementById('date').value = today;
+                const now = new Date();
+                const formattedDateTime = now.toISOString().slice(0, 16);
+                document.getElementById('datetime').value = formattedDateTime;
             });
+        </script>
         </script>
         <div class="form-group">
             <label for="moment">Moment :</label>
@@ -230,8 +237,9 @@
         <div class="form-group">
             <label for="evenement">Événement :</label>
             <input type="text" id="evenement" name="evenement">
-        </div>
-        <button type="button" onclick="submitForm()" style="font-size: 2em; padding: 20px;">Valider</button>
+        <div style="text-align: center; padding: 15px;">
+                <button type="button" onclick="submitForm()" style="font-size: 2em; padding: 15px;">Envoyer</button>
+                <button type="reset" style="font-size: 2em; padding: 15px;">Reset</button>
     </form>
     <script>
         document.addEventListener('input', function () {
@@ -254,7 +262,7 @@
                 data[key] = value;
             });
 
-            fetch('https://script.google.com/macros/s/AKfycbzHl0hqVULSyNBcLIiqGD_G2G1D_V73H4e8NYYFG16tQ_-jxo5hM65wYN1aJj_4CNWF/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbyRelKASpOj5KELX2Pjwe-bjDBBqnBeafBTA4MRoZ0qudOPDO_px6m_IbDWK-YEvBwA/exec', {
                 method: 'POST',
                 //mode:"no-cors",
                 body: new URLSearchParams(data)
