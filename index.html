@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,31 +10,39 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
         }
-        input, select {
+
+        input,
+        select {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
         }
+
         .row {
             display: flex;
             justify-content: space-between;
         }
-        .row > div {
+
+        .row>div {
             flex: 1;
             margin-right: 10px;
         }
-        .row > div:last-child {
+
+        .row>div:last-child {
             margin-right: 0;
         }
     </style>
 </head>
+
 <body>
     <form id="suiviForm">
         <div class="form-group">
@@ -41,7 +50,7 @@
             <input type="date" id="date" name="date">
         </div>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('date').value = today;
             });
@@ -66,7 +75,7 @@
         </div>
         <script>
             function formatGlycemie(input) {
-                input.addEventListener('input', function() {
+                input.addEventListener('input', function () {
                     let value = input.value.replace(',', '').replace('.', '');
                     if (value.length > 2) {
                         value = value.slice(0, -2) + ',' + value.slice(-2);
@@ -75,7 +84,7 @@
                 });
             }
 
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 formatGlycemie(document.getElementById('glycemie_avant'));
                 formatGlycemie(document.getElementById('glycemie_apres'));
             });
@@ -195,18 +204,20 @@
                 data[key] = value;
             });
 
-            fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxQlgJB-ASed0iRdb7k-EtCWrNy-jmij1JQX60d9WmTmm9pr65S28p6XJDw7QFofmOq/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbxQlgJB-ASed0iRdb7k-EtCWrNy-jmij1JQX60d9WmTmm9pr65S28p6XJDw7QFofmOq/exec', {
                 method: 'POST',
+                mode: 'no-cors',
                 body: new URLSearchParams(data)
             })
-            .then(response => response.text())
-            .then(result => {
-                alert('Données envoyées avec succès');
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-            });
+                .then(response => response.text())
+                .then(result => {
+                    alert('Données envoyées avec succès');
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                });
         }
     </script>
 </body>
+
 </html>
