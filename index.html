@@ -9,46 +9,75 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #01579b; /* Couleur de fond bleu océan profond */
+            color: #ffffff; /* Couleur de texte blanc */
         }
-
+    
         .form-group {
             margin-bottom: 15px;
         }
-
+    
         label {
             display: block;
             margin-bottom: 5px;
+            color: #ffffff; /* Couleur de texte des labels */
         }
-
+    
         input,
         select {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
+            border: 1px solid #0288d1; /* Bordure bleu ciel */
+            border-radius: 4px; /* Coins arrondis */
+            background-color: #afd7e9; /* Couleur de fond bleu ciel */
+            color: #01579b; /* Couleur de texte bleu océan profond */
         }
-
+    
         .row {
             display: flex;
             justify-content: space-between;
         }
-
+    
         .row>div {
             flex: 1;
             margin-right: 10px;
         }
-
+    
         .row>div:last-child {
             margin-right: 0;
         }
-
+    
         h1 {
             text-align: center;
+            color: #ffffff; /* Couleur de texte du titre */
+            font-family: 'Poiret One', cursive; /* Police de style Posseidon */
+        }
+    
+        button {
+            background-color: #0288d1; /* Couleur de fond des boutons */
+            color: #ffffff; /* Couleur de texte des boutons */
+            border: none;
+            border-radius: 4px; /* Coins arrondis */
+            padding: 8px 16px;
+            font-size: 0.8em;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #01579b; /* Couleur de fond des boutons au survol */
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Diab'data</h1>
+    <div class="header">
+        <img src="diabdata-logo.png" alt="Trident de Poséidon" width="150" height="100">
+    </div>
     <form id="suiviForm">
         <div class="form-group">
             <label for="datetime">Date et Heure :</label>
@@ -98,11 +127,11 @@
             });
         </script>
         <div class="form-group row">
-            <div style="flex: 8.5%;">
+            <div style="flex: 85%;">
                 <label for="aliment1">Aliment 1 :</label>
                 <input type="text" id="aliment1" name="aliment1">
             </div>
-            <div style="flex: 1.5%;">
+            <div style="flex: 15%;">
                 <label for="u1">U1 :</label>
                 <select id="u1" name="u1">
                     <script>
@@ -114,11 +143,11 @@
             </div>
         </div>
         <div class="form-group row">
-            <div style="flex: 8.5%;">
+            <div style="flex: 85%;">
                 <label for="aliment2">Aliment 2 :</label>
                 <input type="text" id="aliment2" name="aliment2">
             </div>
-            <div style="flex: 1.5%;">
+            <div style="flex: 15%;">
                 <label for="u2">U2 :</label>
                 <select id="u2" name="u2">
                     <script>
@@ -130,11 +159,11 @@
             </div>
         </div>
         <div class="form-group row">
-            <div style="flex: 8.5%;">
+            <div style="flex: 85%;">
                 <label for="aliment3">Aliment 3 :</label>
                 <input type="text" id="aliment3" name="aliment3">
             </div>
-            <div style="flex: 1.5%;">
+            <div style="flex: 15%;">
                 <label for="u3">U3 :</label>
                 <select id="u3" name="u3">
                     <script>
@@ -146,11 +175,11 @@
             </div>
         </div>
         <div class="form-group row">
-            <div style="flex: 8.5%;">
+            <div style="flex: 85%;">
                 <label for="aliment4">Aliment 4 :</label>
                 <input type="text" id="aliment4" name="aliment4">
             </div>
-            <div style="flex: 1.5%;">
+            <div style="flex: 15%;">
                 <label for="u4">U4 :</label>
                 <select id="u4" name="u4">
                     <script>
@@ -162,11 +191,11 @@
             </div>
         </div>
         <div class="form-group row">
-            <div style="flex: 8.5%;">
+            <div style="flex: 85%;">
                 <label for="aliment5">Aliment 5 :</label>
                 <input type="text" id="aliment5" name="aliment5">
             </div>
-            <div style="flex: 1.5%;">
+            <div style="flex: 15%;">
                 <label for="u5">U5 :</label>
                 <select id="u5" name="u5">
                     <script>
@@ -178,11 +207,11 @@
             </div>
         </div>
         <div class="form-group row">
-            <div style="flex: 8.5%;">
+            <div style="flex: 85%;">
                 <label for="aliment6">Aliment 6 :</label>
                 <input type="text" id="aliment6" name="aliment6">
             </div>
-            <div style="flex: 1.5%;">
+            <div style="flex: 15%;">
                 <label for="u6">U6 :</label>
                 <select id="u6" name="u6">
                     <script>
@@ -237,8 +266,8 @@
         <div class="form-group">
             <label for="evenement">Événement :</label>
             <input type="text" id="evenement" name="evenement">
-        <div style="text-align: center; padding: 15px;">
-                <button type="button" onclick="submitForm()" style="font-size: 2em; padding: 15px;">Envoyer</button>
+            <div style="text-align: center; padding: 15px;">
+                <button type="button" onclick="submitForm()" style="font-size: 2em; padding: 15px;">Send</button>
                 <button type="reset" style="font-size: 2em; padding: 15px;">Reset</button>
     </form>
     <script>
