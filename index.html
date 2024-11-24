@@ -156,6 +156,7 @@
             <div>
                 <label for="sport">Sport :</label>
                 <select id="sport" name="sport">
+                    <option value="Non">Non</option>
                     <option value="Marche">Marche</option>
                     <option value="Course à pied">Course à pied</option>
                     <option value="Natation">Natation</option>
@@ -195,8 +196,9 @@
                 data[key] = value;
             });
 
-            fetch('https://script.google.com/macros/s/AKfycbw0MiG8hpx_nKLlDQY5XZuFO1sAELikZYSTrnAm7yOegNZcfUFSb2Tjlyg2mfi1Nh0V/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbzHl0hqVULSyNBcLIiqGD_G2G1D_V73H4e8NYYFG16tQ_-jxo5hM65wYN1aJj_4CNWF/exec', {
                 method: 'POST',
+                //mode:"no-cors",
                 body: new URLSearchParams(data)
             })
             .then(response => response.text())
