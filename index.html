@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-    <form>
+    <form id="suiviForm">
         <div class="form-group">
             <label for="date">Date :</label>
             <input type="date" id="date" name="date">
@@ -74,7 +74,7 @@
                     input.value = value;
                 });
             }
-        
+
             document.addEventListener('DOMContentLoaded', function() {
                 formatGlycemie(document.getElementById('glycemie_avant'));
                 formatGlycemie(document.getElementById('glycemie_apres'));
@@ -172,9 +172,10 @@
             <label for="evenement">Événement :</label>
             <input type="text" id="evenement" name="evenement">
         </div>
+        <button type="button" onclick="submitForm()" style="font-size: 2em; padding: 20px;">Valider</button>
     </form>
     <script>
-        document.addEventListener('input', function() {
+        document.addEventListener('input', function () {
             const u1 = parseFloat(document.getElementById('u1').value) || 0;
             const u2 = parseFloat(document.getElementById('u2').value) || 0;
             const u3 = parseFloat(document.getElementById('u3').value) || 0;
@@ -185,6 +186,27 @@
             const totalApidra = u1 + u2 + u3 + u4 + u5 + u6 + ajoutRetrait;
             document.getElementById('total_apidra').value = totalApidra;
         });
+
+        function submitForm() {
+            const form = document.getElementById('suiviForm');
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch('https://script.google.com/macros/s/AKfycbxQlgJB-ASed0iRdb7k-EtCWrNy-jmij1JQX60d9WmTmm9pr65S28p6XJDw7QFofmOq/exec', {
+                method: 'POST',
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert('Données envoyées avec succès');
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+            });
+        }
     </script>
 </body>
 </html>
