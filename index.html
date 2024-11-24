@@ -197,7 +197,6 @@
 
             fetch('https://script.google.com/macros/s/AKfycbw0MiG8hpx_nKLlDQY5XZuFO1sAELikZYSTrnAm7yOegNZcfUFSb2Tjlyg2mfi1Nh0V/exec', {
                 method: 'POST',
-                mode: 'no-cors',
                 body: new URLSearchParams(data)
             })
             .then(response => response.text())
