@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Suivi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .row > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .row > div:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="form-group">
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date">
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('date').value = today;
+            });
+        </script>
+        <div class="form-group">
+            <label for="moment">Moment :</label>
+            <select id="moment" name="moment">
+                <option value="Matin">Matin</option>
+                <option value="Midi">Midi</option>
+                <option value="Après-midi">Après-midi</option>
+                <option value="Soir">Soir</option>
+                <option value="Nuit">Nuit</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="glycemie_avant">Glycémie avant :</label>
+            <input type="text" id="glycemie_avant" name="glycemie_avant" placeholder="0,00">
+        </div>
+        <div class="form-group">
+            <label for="glycemie_apres">Glycémie après :</label>
+            <input type="text" id="glycemie_apres" name="glycemie_apres" placeholder="0,00">
+        </div>
+        <script>
+            function formatGlycemie(input) {
+                input.addEventListener('input', function() {
+                    let value = input.value.replace(',', '').replace('.', '');
+                    if (value.length > 2) {
+                        value = value.slice(0, -2) + ',' + value.slice(-2);
+                    }
+                    input.value = value;
+                });
+            }
+        
+            document.addEventListener('DOMContentLoaded', function() {
+                formatGlycemie(document.getElementById('glycemie_avant'));
+                formatGlycemie(document.getElementById('glycemie_apres'));
+            });
+        </script>
+        <div class="form-group row">
+            <div style="flex: 8.5;">
+                <label for="aliment1">Aliment 1 :</label>
+                <input type="text" id="aliment1" name="aliment1">
+            </div>
+            <div style="flex: 1.5;">
+                <label for="u1">U1 :</label>
+                <input type="number" id="u1" name="u1" min="1" max="100" value="0">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div style="flex: 8.5;">
+                <label for="aliment2">Aliment 2 :</label>
+                <input type="text" id="aliment2" name="aliment2">
+            </div>
+            <div style="flex: 1.5;">
+                <label for="u2">U2 :</label>
+                <input type="number" id="u2" name="u2" min="1" max="100" value="0">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div style="flex: 8.5;">
+                <label for="aliment3">Aliment 3 :</label>
+                <input type="text" id="aliment3" name="aliment3">
+            </div>
+            <div style="flex: 1.5;">
+                <label for="u3">U3 :</label>
+                <input type="number" id="u3" name="u3" min="1" max="100" value="0">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div style="flex: 8.5;">
+                <label for="aliment4">Aliment 4 :</label>
+                <input type="text" id="aliment4" name="aliment4">
+            </div>
+            <div style="flex: 1.5;">
+                <label for="u4">U4 :</label>
+                <input type="number" id="u4" name="u4" min="1" max="100" value="0">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div style="flex: 8.5;">
+                <label for="aliment5">Aliment 5 :</label>
+                <input type="text" id="aliment5" name="aliment5">
+            </div>
+            <div style="flex: 1.5;">
+                <label for="u5">U5 :</label>
+                <input type="number" id="u5" name="u5" min="1" max="100" value="0">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div style="flex: 8.5;">
+                <label for="aliment6">Aliment 6 :</label>
+                <input type="text" id="aliment6" name="aliment6">
+            </div>
+            <div style="flex: 1.5;">
+                <label for="u6">U6 :</label>
+                <input type="number" id="u6" name="u6" min="1" max="100" value="0">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ajout_retrait">Ajout/Retrait :</label>
+            <input type="number" id="ajout_retrait" name="ajout_retrait" min="-50" max="50" value="0">
+        </div>
+        <div class="form-group">
+            <label for="total_apidra">Total Apidra :</label>
+            <input type="number" id="total_apidra" name="total_apidra" readonly>
+        </div>
+        <div class="form-group">
+            <label for="toujeo">Toujeo :</label>
+            <input type="number" id="toujeo" name="toujeo" min="0" max="50" value="0">
+        </div>
+        <div class="form-group row">
+            <div>
+                <label for="sport">Sport :</label>
+                <select id="sport" name="sport">
+                    <option value="Marche">Marche</option>
+                    <option value="Course à pied">Course à pied</option>
+                    <option value="Natation">Natation</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Musculation">Musculation</option>
+                </select>
+            </div>
+            <div>
+                <label for="duree">Durée (minutes) :</label>
+                <input type="number" id="duree" name="duree" value="0">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="evenement">Événement :</label>
+            <input type="text" id="evenement" name="evenement">
+        </div>
+    </form>
+    <script>
+        document.addEventListener('input', function() {
+            const u1 = parseFloat(document.getElementById('u1').value) || 0;
+            const u2 = parseFloat(document.getElementById('u2').value) || 0;
+            const u3 = parseFloat(document.getElementById('u3').value) || 0;
+            const u4 = parseFloat(document.getElementById('u4').value) || 0;
+            const u5 = parseFloat(document.getElementById('u5').value) || 0;
+            const u6 = parseFloat(document.getElementById('u6').value) || 0;
+            const ajoutRetrait = parseFloat(document.getElementById('ajout_retrait').value) || 0;
+            const totalApidra = u1 + u2 + u3 + u4 + u5 + u6 + ajoutRetrait;
+            document.getElementById('total_apidra').value = totalApidra;
+        });
+    </script>
+</body>
+</html>
