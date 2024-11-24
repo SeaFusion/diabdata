@@ -195,7 +195,7 @@
                 data[key] = value;
             });
 
-            fetch('https://script.google.com/macros/s/AKfycbxQlgJB-ASed0iRdb7k-EtCWrNy-jmij1JQX60d9WmTmm9pr65S28p6XJDw7QFofmOq/exec', {
+            fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxQlgJB-ASed0iRdb7k-EtCWrNy-jmij1JQX60d9WmTmm9pr65S28p6XJDw7QFofmOq/exec', {
                 method: 'POST',
                 body: new URLSearchParams(data)
             })
