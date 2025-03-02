@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #01579b; /* Couleur de fond bleu océan profond */
+    color: #ffffff; /* Couleur de texte blanc */
+}
+
+.form-group{
+    margin-bottom: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff; /* Couleur de texte des labels */
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #0288d1; /* Bordure bleu ciel */
+    border-radius: 4px; /* Coins arrondis */
+    background-color: #afd7e9; /* Couleur de fond bleu ciel */
+    color: #01579b; /* Couleur de texte bleu océan profond */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row>div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.row>div:last-child {
+    margin-right: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff; /* Couleur de texte du titre */
+    font-family: 'Poiret One', cursive; /* Police de style Posseidon */
+}
+
+button {
+    background-color: #0288d1; /* Couleur de fond des boutons */
+    color: #ffffff; /* Couleur de texte des boutons */
+    border: none;
+    border-radius: 4px; /* Coins arrondis */
+    padding: 8px 16px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #01579b; /* Couleur de fond des boutons au survol */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 10px;
+}
