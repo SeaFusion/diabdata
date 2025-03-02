@@ -33,13 +33,20 @@
                 </div>  
             </div>
             <div class="form-group row">
-                <div class="glycemie_avant-group">
-                    <label for="glycemie_avant">Glycémie avant :</label>
-                    <input type="text" id="glycemie_avant" name="glycemie_avant" placeholder="0,00">
+                <div class="glycemie-group">
+                    <label for="glycemie">Glycémie :</label>
+                    <input type="text" id="glycemie" name="glycemie" placeholder="0,00">
                 </div>
-                <div class="glycemie_apres-group">
-                    <label for="glycemie_apres">Glycémie après :</label>
-                    <input type="text" id="glycemie_apres" name="glycemie_apres" placeholder="0,00">
+                <div class="tendance-group">
+                    <label for="tendance">Tendance :</label>
+                    <select id="tendance" name="tendance">
+                        <option value="A définir">A définir</option>
+                        <option value="&#8594;">&#8594; Stable</option>
+                        <option value="&#8593;">&#8593; Forte hausse</option>
+                        <option value="&#8599;">&#8599; Hausse</option>
+                        <option value="&#8600;">&#8600; Baisse</option>
+                        <option value="&#8595;">&#8595; Forte baisse</option>
+                    </select>
                 </div>
             </div>
             <div class="aliment1-group row">

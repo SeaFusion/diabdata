@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
             data[key] = value;
         });
 
-        fetch('https://script.google.com/macros/s/AKfycbyRelKASpOj5KELX2Pjwe-bjDBBqnBeafBTA4MRoZ0qudOPDO_px6m_IbDWK-YEvBwA/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbwo4cxfY2y-XsKvUXI8WrHdZ1tT-E_7ZBc2yHS3I-llaJIg8svaPGYOSw1PLwxOVIyn/exec', {
             method: 'POST',
             //mode:"no-cors",
             body: new URLSearchParams(data)
@@ -75,6 +75,5 @@ function formatGlycemie(input) {
     });
 }
 document.addEventListener('DOMContentLoaded', function () {
-    formatGlycemie(document.getElementById('glycemie_avant'));
-    formatGlycemie(document.getElementById('glycemie_apres'));
+    formatGlycemie(document.getElementById('glycemie'));
 });
