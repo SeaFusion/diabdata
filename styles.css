@@ -13,6 +13,7 @@ label {
     display: block;
     margin-bottom: 5px;
     color: #ffffff; /* Couleur de texte des labels */
+    font-size: 0.9em;
 }
 
 input,
@@ -51,13 +52,33 @@ button {
     color: #ffffff; /* Couleur de texte des boutons */
     border: none;
     border-radius: 4px; /* Coins arrondis */
-    padding: 8px 16px;
-    font-size: 0.8em;
+    padding: 10px 16px;
+    font-size: 0.9em;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #01579b; /* Couleur de fond des boutons au survol */
+}
+
+.button-group {
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 15px;
+}
+
+.send-button {
+    background-color: #268600; /* Couleur de fond des boutons */
+    color: #ffffff; /* Couleur de texte des boutons */
+    margin: 0 auto;
+}
+
+.reload-button {
+    background-color: #885202; /* Couleur de fond des boutons */
+    color: #ffffff; /* Couleur de texte des boutons */
+    margin: 0 auto;
+    
 }
 
 .header {
